@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:easy_rich_text/easy_rich_text.dart';
 
 class AreaVolume extends StatefulWidget {
   @override
@@ -10,6 +11,7 @@ class _AreaVolumeState extends State<AreaVolume> {
   double _res = 0;
   bool _visible = false;
   List _listHitung = ["Area", "Volume"];
+  String _satuan = 'm'+'\u00B2';
 
   GlobalKey<ScaffoldState> _frmKey = GlobalKey<ScaffoldState>();
 
@@ -51,8 +53,14 @@ class _AreaVolumeState extends State<AreaVolume> {
                 });
                 if (value == 'Area') {
                   _show(false);
+                  setState(() {
+                    _satuan = 'm'+'\u00B2';
+                  });
                 } else if (value == 'Volume') {
                   _show(true);
+                  setState(() {
+                    _satuan = 'm'+'\u00B3';
+                  });
                 }
               },
             ),
@@ -132,8 +140,10 @@ class _AreaVolumeState extends State<AreaVolume> {
                 setState(() {
                   if(_valHitung == 'Area'){
                     _res = double.parse(pjgController.text) * double.parse(lbrController.text);
+                    _satuan = 'm'+'\u00B2';
                   } else if (_valHitung == 'Volume'){
                     _res = double.parse(pjgController.text) * double.parse(lbrController.text) * double.parse(tngController.text);
+                    _satuan = 'm''m'+'\u00B3';
                   } else {
                     _frmKey.currentState.showSnackBar(SnackBar(
                       content: Text('Please choose the method calculation!'),
@@ -149,7 +159,10 @@ class _AreaVolumeState extends State<AreaVolume> {
             padding: EdgeInsets.fromLTRB(28.0, 20.0, 28.0, 8.0),
             child: TextFormField(
               enabled: false,
-              controller: TextEditingController(text: _res.toString()),
+              controller: TextEditingController(
+                text: 
+                  '${_res.toString()} $_satuan'
+              ),
               decoration: InputDecoration(
                 hintText: 'Result',
                 hintStyle: TextStyle(color: Colors.grey),
