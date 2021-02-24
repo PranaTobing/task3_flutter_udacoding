@@ -64,6 +64,7 @@ class _AreaVolumeState extends State<AreaVolume> {
               controller: pjgController,
               decoration: InputDecoration(
                 hintText: 'Length',
+                labelText: 'Length',
                 hintStyle: TextStyle(color: Colors.grey),
                 focusedBorder: UnderlineInputBorder(
                   borderSide: BorderSide(color: Colors.orange),
@@ -81,6 +82,7 @@ class _AreaVolumeState extends State<AreaVolume> {
               controller: lbrController,
               decoration: InputDecoration(
                 hintText: 'Width',
+                labelText: 'Width',
                 hintStyle: TextStyle(color: Colors.grey),
                 focusedBorder: UnderlineInputBorder(
                   borderSide: BorderSide(color: Colors.orange),
@@ -100,6 +102,7 @@ class _AreaVolumeState extends State<AreaVolume> {
                 controller: tngController,
                 decoration: InputDecoration(
                   hintText: 'Height',
+                  labelText: 'Height',
                   hintStyle: TextStyle(color: Colors.grey),
                   focusedBorder: UnderlineInputBorder(
                     borderSide: BorderSide(color: Colors.orange),
