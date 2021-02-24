@@ -66,7 +66,7 @@ class _AreaVolumeState extends State<AreaVolume> {
                 hintText: 'Length',
                 hintStyle: TextStyle(color: Colors.grey),
                 focusedBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.purple),
+                  borderSide: BorderSide(color: Colors.orange),
                 ),
                 enabledBorder: UnderlineInputBorder(
                   borderSide: BorderSide(color: Colors.grey),
@@ -83,7 +83,7 @@ class _AreaVolumeState extends State<AreaVolume> {
                 hintText: 'Width',
                 hintStyle: TextStyle(color: Colors.grey),
                 focusedBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.purple),
+                  borderSide: BorderSide(color: Colors.orange),
                 ),
                 enabledBorder: UnderlineInputBorder(
                   borderSide: BorderSide(color: Colors.grey),
@@ -102,7 +102,7 @@ class _AreaVolumeState extends State<AreaVolume> {
                   hintText: 'Height',
                   hintStyle: TextStyle(color: Colors.grey),
                   focusedBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.purple),
+                    borderSide: BorderSide(color: Colors.orange),
                   ),
                   enabledBorder: UnderlineInputBorder(
                     borderSide: BorderSide(color: Colors.grey),
@@ -112,26 +112,31 @@ class _AreaVolumeState extends State<AreaVolume> {
             ),
           ),
           Container(
-            height: 50,
-            width: 250,
+            padding: EdgeInsets.fromLTRB(35.0, 10.0, 35.0, 10.0),
             child: RaisedButton(
-              color: Colors.blue[900],
-              splashColor: Colors.blueAccent,
+              color: Colors.green,
+              splashColor: Colors.greenAccent,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(20.0))
               ),
               padding: EdgeInsets.symmetric(vertical:15.0, horizontal:50.0),
               textColor: Colors.white,
               child: Text(
-                "LOG IN",
+                "RESULT",
                 style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.w900),
               ),
               onPressed: (){
                 setState(() {
                   if(_valHitung == 'Area'){
                     _res = double.parse(pjgController.text) * double.parse(lbrController.text);
-                  } else {
+                  } else if (_valHitung == 'Volume'){
                     _res = double.parse(pjgController.text) * double.parse(lbrController.text) * double.parse(tngController.text);
+                  } else {
+                    _frmKey.currentState.showSnackBar(SnackBar(
+                      content: Text('Please choose the method calculation!'),
+                      action: SnackBarAction(label: 'Close', onPressed: (){}),
+                      )
+                    );
                   }
                 });
               }
@@ -146,8 +151,9 @@ class _AreaVolumeState extends State<AreaVolume> {
                 hintText: 'Result',
                 hintStyle: TextStyle(color: Colors.grey),
                 focusedBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.purple),
+                  borderSide: BorderSide(color: Colors.orange),
                 ),
+                filled: true,
                 enabledBorder: UnderlineInputBorder(
                   borderSide: BorderSide(color: Colors.grey),
                 ),
