@@ -73,7 +73,7 @@ class _HomePageState extends State<HomePage> {
             Padding(
               padding: EdgeInsets.all(8.0),
               child: Text(
-                'Ini adalah Halaman Home Page Task 3, silahkan memilih menu perhitungan fisika dan konversi satuan panjang pada drawer disebelah kanan.',
+                'Ini adalah Halaman Home Page Task 3, silahkan memilih menu perhitungan fisika dan konversi satuan panjang pada menu disebelah kanan atas. Terimakasih',
                 style: TextStyle(fontSize: 15.0, color: Colors.white),
               ),
             ),
@@ -94,7 +94,7 @@ Widget _drawerHeader(name, pwd) {
       ),
     ),
     accountName: Text(name), 
-    accountEmail: Text(pwd+'@gmail.com'),
+    accountEmail: Text(name+'@gmail.com'),
     decoration: BoxDecoration(
       color: Colors.orange[200],
     ),
