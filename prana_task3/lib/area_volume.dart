@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:easy_rich_text/easy_rich_text.dart';
 
 class AreaVolume extends StatefulWidget {
   @override
